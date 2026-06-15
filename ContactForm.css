@@ -1,0 +1,128 @@
+/* ── Contact Form ───────────────────────────────────────────────────── */
+.cf {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 2rem;
+  animation: slideDown 0.35s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cf__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cf__label {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.cf__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+}
+
+.cf__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+
+.cf__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cf__field--full {
+  grid-column: 1 / -1;
+}
+
+.cf__lbl {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.cf__input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.85rem;
+  color: var(--paper);
+  font-size: 0.9rem;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.cf__input::placeholder { color: #4a4a4a; }
+
+.cf__input:focus {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.05);
+}
+
+.cf__textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+.cf__field--error .cf__input {
+  border-color: var(--rust);
+}
+
+.cf__err {
+  font-size: 0.72rem;
+  color: var(--rust);
+  letter-spacing: 0.02em;
+}
+
+.cf__actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cf__submit {
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.cf__submit:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201,168,76,0.3);
+}
+
+.cf__submit:active { transform: translateY(0); }
+
+@media (max-width: 600px) {
+  .cf__grid { grid-template-columns: 1fr; }
+  .cf__field--full { grid-column: 1; }
+}
